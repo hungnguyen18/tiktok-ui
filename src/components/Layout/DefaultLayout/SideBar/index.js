@@ -1,5 +1,13 @@
 import React from 'react';
+import classNames from 'classnames/bind';
+import style from './Sidebar.module.scss';
 
-export default function SideBar() {
-    return <h2>SideBar</h2>;
+const cx = classNames.bind(style);
+
+export default function Sidebar() {
+    return (
+        <aside className={cx('wrapper')}>
+            <h2>Sidebar</h2>
+        </aside>
+    );
 }
