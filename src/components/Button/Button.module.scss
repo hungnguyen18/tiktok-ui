@@ -5,7 +5,8 @@
     min-width: 100px;
     padding: 9px 16px;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 500;
+    font-family: 'ProximaNova', sans-serif;
     border-radius: 4px;
     cursor: pointer;
     background-color: var(--white);
@@ -63,6 +64,14 @@
     &:hover {
         border-color: currentColor;
         background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.outlineDefautl {
+    border-color: rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
     }
 }
 
