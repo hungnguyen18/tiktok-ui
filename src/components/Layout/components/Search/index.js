@@ -8,6 +8,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import styles from './Seacrh.module.scss';
+import { useDebouce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +17,8 @@ export default function Seacrh() {
     const [searchResult, setSearchResult] = useState([]);
     const [showResults, setShowResults] = useState(true);
     const [loading, setLoading] = useState(false);
+
+    const debouce = useDebouce(searchValue, 500);
 
     const inputRef = useRef();
 
@@ -37,7 +40,7 @@ export default function Seacrh() {
 
         setLoading(true);
 
-        fetch(` https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+        fetch(` https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debouce)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 setSearchResult(res.data);
@@ -46,7 +49,7 @@ export default function Seacrh() {
             .catch(() => {
                 setLoading(false);
             });
-    }, [searchValue]);
+    }, [debouce]);
 
     return (
         <HeadlessTippy
