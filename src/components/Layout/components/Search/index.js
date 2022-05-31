@@ -52,6 +52,17 @@ export default function Seacrh() {
         fetchApi();
     }, [debouce]);
 
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
+    };
+
+    // const handleSubmit = (e) => {
+    //     e.event.preventDefault();
+    // };
+
     return (
         <HeadlessTippy
             interactive
@@ -75,7 +86,7 @@ export default function Seacrh() {
                     value={searchValue}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => setShowResults(true)}
                 />
 
@@ -87,7 +98,7 @@ export default function Seacrh() {
 
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon />
                 </button>
             </div>
