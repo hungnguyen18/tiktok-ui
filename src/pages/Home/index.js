@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Home() {
-    return <div>Home</div>;
+    return <h2 style={{ height: 2000 }}>Home</h2>;
 }
