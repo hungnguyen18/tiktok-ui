@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
@@ -72,5 +73,9 @@ const Button = React.forwardRef(
         );
     },
 );
+
+Button.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 export default Button;

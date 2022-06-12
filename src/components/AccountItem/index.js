@@ -1,5 +1,5 @@
-import React from 'react';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 
 import styles from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,3 +23,7 @@ export default function AccountItem({ data }) {
         </Link>
     );
 }
+
+AccountItem.prototype = {
+    data: PropTypes.object,
+};

@@ -8,12 +8,12 @@ import * as searchServices from '~/services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
-import styles from './Seacrh.module.scss';
+import styles from './Search.module.scss';
 import { useDebouce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
-export default function Seacrh() {
+export default function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResults, setShowResults] = useState(true);
