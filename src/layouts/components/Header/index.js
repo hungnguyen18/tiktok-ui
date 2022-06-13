@@ -109,7 +109,7 @@ export default function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={200} content="Upload video" placement="bottom">
-                                <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} outlineDefautl>
+                                <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} outlineDefault>
                                     Upload
                                 </Button>
                             </Tippy>

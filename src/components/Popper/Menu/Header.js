@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import styles from './Menu.module.scss';
@@ -18,3 +18,8 @@ export default function Header({ title, onBack }) {
         </header>
     );
 }
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired,
+    onBack: PropTypes.func.isRequired,
+};

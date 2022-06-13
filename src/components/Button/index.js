@@ -13,7 +13,7 @@ const Button = React.forwardRef(
             href,
             primary = false,
             outline = false,
-            outlineDefautl = false,
+            outlineDefault = false,
             text = false,
             disabled = false,
             rounded = false,
@@ -33,7 +33,7 @@ const Button = React.forwardRef(
             [className]: className,
             primary,
             outline,
-            outlineDefautl,
+            outlineDefault,
             text,
             disabled,
             rounded,
@@ -75,7 +75,21 @@ const Button = React.forwardRef(
 );
 
 Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    outlineDefault: PropTypes.bool,
+    text: PropTypes.bool,
+    disabled: PropTypes.bool,
+    rounded: PropTypes.bool,
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    className: PropTypes.string,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
     children: PropTypes.node.isRequired,
+    onClick: PropTypes.func,
 };
 
 export default Button;
