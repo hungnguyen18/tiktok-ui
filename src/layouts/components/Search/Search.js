@@ -9,17 +9,17 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import styles from './Search.module.scss';
-import { useDebouce } from '~/hooks';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
 export default function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResults, setShowResults] = useState(true);
+    const [showResults, setShowResults] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debouce = useDebouce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
 
@@ -34,7 +34,7 @@ export default function Search() {
     };
 
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -42,7 +42,7 @@ export default function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const results = await searchServices.search(debouce);
+            const results = await searchServices.search(debouncedValue);
 
             setSearchResult(results);
 
@@ -50,7 +50,7 @@ export default function Search() {
         };
 
         fetchApi();
-    }, [debouce]);
+    }, [debouncedValue]);
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
